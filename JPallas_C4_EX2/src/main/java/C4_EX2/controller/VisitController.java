@@ -41,12 +41,12 @@ public class VisitController {
 	}
 
 	@GetMapping("/visits/clients/{clientId}")
-	public List<Visit> listPartiesByUserId(@PathVariable(name = "clientId") Long clientId) {
+	public List<Visit> listVisitsByClientId(@PathVariable(name = "clientId") Long clientId) {
 		return visitService.listVisitsByClientId(clientId);
 	}
 
 	@GetMapping("/visits/odontologists/{odontologistId}")
-	public List<Visit> listUsersByPartyId(@PathVariable(name = "odontologistId") Long odontologistId) {
+	public List<Visit> listVisitsByOdontologistId(@PathVariable(name = "odontologistId") Long odontologistId) {
 		return visitService.listVisitsByOdontologistId(odontologistId);
 	}
 

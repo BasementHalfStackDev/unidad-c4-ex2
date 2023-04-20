@@ -16,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import C4_EX2.dto.Odontologist;
+import C4_EX2.dto.Visit;
 import C4_EX2.service.OdontologistService;
+import C4_EX2.service.VisitService;
 
 @RestController // Rest controller
 @RequestMapping("/api")
@@ -25,6 +27,10 @@ public class OdontologistController {
 	// Implement service
 	@Autowired
 	OdontologistService odontologistService;
+
+	// Implement visit service
+	@Autowired
+	VisitService visitService;
 
 	// Get Mappings
 	@GetMapping("/odontologists")
@@ -39,6 +45,12 @@ public class OdontologistController {
 		odontologistxID = odontologistService.odontologistById(id);
 
 		return odontologistxID;
+	}
+
+	@GetMapping("/odontologists/{id}/visits")
+	public List<Visit> listVisitsByOdontologistId(@PathVariable(name = "odontologistId") Long odontologistId) {
+		return visitService.listVisitsByOdontologistId(odontologistId);
+
 	}
 
 	// Post Mappings

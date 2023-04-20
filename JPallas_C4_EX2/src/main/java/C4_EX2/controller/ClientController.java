@@ -16,7 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import C4_EX2.dto.Client;
+import C4_EX2.dto.Odontologist;
+import C4_EX2.dto.Visit;
 import C4_EX2.service.ClientService;
+import C4_EX2.service.OdontologistService;
+import C4_EX2.service.VisitService;
 
 @RestController // Rest controller
 @RequestMapping("/api")
@@ -25,6 +29,14 @@ public class ClientController {
 	// Implement service
 	@Autowired
 	ClientService clientService;
+
+	// Implement odontologist service
+	@Autowired
+	OdontologistService odontologistService;
+
+	// Implement visit service
+	@Autowired
+	VisitService visitService;
 
 	// Get Mappings
 	@GetMapping("/clients")
@@ -39,6 +51,19 @@ public class ClientController {
 		clientxID = clientService.clientById(id);
 
 		return clientxID;
+	}
+
+	// Get list of odontologists for client
+	@GetMapping("/clients/odontologists")
+	public List<Odontologist> listOdontologists() {
+		return odontologistService.listOdontologists();
+	}
+
+	// Get list of visits for client
+	@GetMapping("/clients/{clientId}/visits")
+	public List<Visit> listVisitsByClientId(@PathVariable(name = "clientId") Long clientId) {
+		return visitService.listVisitsByClientId(clientId);
+
 	}
 
 	// Post Mappings

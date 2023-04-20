@@ -3,6 +3,10 @@
  */
 package C4_EX2.dao;
 
-public interface ClientDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import C4_EX2.dto.Client;
+
+public interface ClientDAO extends JpaRepository<Client, Long> {
 
 }

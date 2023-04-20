@@ -3,6 +3,10 @@
  */
 package C4_EX2.dao;
 
-public interface VisitDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import C4_EX2.dto.Visit;
+
+public interface VisitDAO extends JpaRepository<Visit, Long> {
 
 }

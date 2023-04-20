@@ -12,7 +12,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -37,8 +36,7 @@ public class Odontologist {
 
 	private int medical_license_no;
 
-	@OneToMany
-	@JoinColumn(name = "FK_visit_odontologist")
+	@OneToMany(mappedBy = "odontologist")
 	private List<Visit> visit;
 
 	// Constructors

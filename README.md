@@ -30,3 +30,7 @@ Teniendo en cuenta los requisitos, llegamos a la conclusión de que este sería 
 - Como médico, poder ver solo mis citas
 - Añadir tipos de intervención / consulta a las citas
 
+# Entidades
+## Clients
+### Endpoints
+
